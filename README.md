@@ -28,11 +28,19 @@ If your website is: `example.com` open Tinson looking for `example.com/tinson-ma
 
 ### How to use
 
+#### Website Step
+
 **At the moment Tinson works only for Google Drive's links.** 
 
 What you need for uploading correctly a link is: 
 * Google Drive download ID
 * Target NSP name
+
+#### Switch Step
+
+Add to `locations.conf` or to `file browser` on Tinfoil the url to your nearly created json. 
+
+The path is `http://example.com/folder-name/switch.json` 
 
 ### Authors
 
