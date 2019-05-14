@@ -22,7 +22,7 @@ There's a lot of free hosting reseller online so this won't be hard to achieve.
 1. Clone this repository on your PC (or directly on your webserver if you have SSH access).
 2. Upload this cloned folder on your website through FTP (you can use [filezilla](https://filezilla-project.org/) or anything you want).
 3. _Optional_ change the folder name for something you like.
-4. You're ready to create and manage your games list.
+4. You're ready to create and manage your NSP list.
 
 If your website is: `example.com` open Tinson looking for `example.com/tinson-master`. If you have changed the folder name change the path based on new folder name.
 
