@@ -42,6 +42,8 @@ Add to `locations.conf` or to `file browser` on Tinfoil the url to your nearly c
 
 The path is `http://example.com/folder-name/switch.json` 
 
+This step is required only first time, after this Tinfoil will load the `locations.conf` refreshing all the contents on them.   
+
 ### Authors
 
 Thanks to the one which gave me the idea.
