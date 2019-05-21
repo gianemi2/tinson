@@ -1,0 +1,11 @@
+.radio-type{
+    margin-bottom: 20px;
+}
+.radio-type label{
+    display: flex;
+    align-items: center;
+}
+
+.radio-type label a{
+    margin-left: 10px;
+}
