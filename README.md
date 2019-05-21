@@ -4,6 +4,9 @@ A great JSON file manager for tinfoil. Install every NSP directly on Switch with
 ## Why should I use this?
 Well, I don't know why you have to use it. I've developed this because my cat jump on my keyboard every time I'm using my mac. 
 
+So is pretty hard to connect my Switch through USB or leave my Mac opened all the time. From download to installation. 
+I've thought on a solution that let's you set directly from anywhere in a second a list of downloads link. After that you can manage your queue directly from Tinfoil. 
+
 So, here it comes: Welcome Tinson!
 
 ## Getting started
