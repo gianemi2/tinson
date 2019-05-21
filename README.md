@@ -57,4 +57,3 @@ Thanks to the one which gave me the idea.
 Thanks to: 
 * [tinfoil.io](https://tinfoil.io/) which has released this incredible tool.
 * [materializecss](http://materializecss.com)
-* [Petah](https://stackoverflow.com/a/18078705) for ajax snippet. I didn't have time to use `fetch()` sorry for everyone hurted by that.
