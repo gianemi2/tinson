@@ -6,7 +6,7 @@
  * Time: 15:52
  */
 
-class JsonMakerForTinfoil
+class Tinson
 {
     private $json_name = 'switch.json';
     private $google_base = 'https://docs.google.com/uc?export=download&id=';
@@ -26,14 +26,14 @@ class JsonMakerForTinfoil
      */
     function kickassNewGame()
     {
-        if(isset($_GET['gid']) && isset($_GET['gname'])){
-            $this->addGameToList($_GET['gid'], $_GET['gname']);
+        if(isset($_POST['gid']) && isset($_POST['gname'])){
+            $this->addGameToList($_POST['gid'], $_POST['gname']);
         }
-        if(isset($_GET['list'])){
+        if(isset($_POST['list'])){
             $this->listCurrentGames();
         }
-        if(isset($_GET['delete'])){
-            $this->deleteSelectedGame($_GET['delete']);
+        if(isset($_POST['delete'])){
+            $this->deleteSelectedGame($_POST['delete']);
         }
     }
 
@@ -49,29 +49,36 @@ class JsonMakerForTinfoil
          $this->saveToJSON();
     }
 
+    function sendResponse($message)
+    {
+        echo json_encode($message);
+    }
+
     function saveToJSON()
     {
         $json = json_encode($this->json, JSON_UNESCAPED_SLASHES);
         $result = file_put_contents($this->json_name, $json);
-        if($result){
-            echo 'Lista aggiornata con successo.';
-        } else {
-            echo 'La lista non è stata aggiornata correttamente.';
-        }
+
+        $message = (
+            $result
+                ? 'Lista aggiornata con successo.'
+                : 'La lista non è stata aggiornata correttamente.'
+        );
+        $this->sendResponse($message);
     }
 
     function listCurrentGames()
     {
-        if(count($this->json->files) > 0){
+        $gamesCount = count($this->json->files);
+        if($gamesCount > 0){
+            $files = [];
             foreach ($this->json->files as $index => $file) {
-                $separator = ';';
-                if($index == count($this->json->files) - 1){
-                    $separator = '';
-                }
+                $fileurl = substr($file, 0, strpos($file, '#'));
                 $filename = substr($file, strpos($file, '#') + 1);
-                $filename = $index . ' | ' . $filename . $separator;
-                echo $filename;
+                $filename = $index . ' | ' . $filename;
+                $files[] = $fileurl . '___' . $filename;
             }
+            $this->sendResponse($files);
         } else {
             echo -1;
         }
@@ -89,12 +96,11 @@ class JsonMakerForTinfoil
                 unset($this->json->files[$delete_target]);
             }
             array_values($this->json->files);
-            $this->saveToJSON();
         } else {
             $delete_target = substr($filename, 0, strpos($filename, '|') - 1);
             unset($this->json->files[$delete_target]);
             array_values($this->json->files);
-            $this->saveToJSON();
         }
+        $this->saveToJSON();
     }
 }
